@@ -1,0 +1,29 @@
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+
+# VSCode settings (共有不要な場合)
+.vscode/
+
+# Python (検証コードを使う場合)
+__pycache__/
+*.pyc
+
+# OS generated files
+.DS_Store
+Thumbs.db
