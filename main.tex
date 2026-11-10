@@ -29,11 +29,13 @@
 \author{中山 耕平}
 \date{\today}
 
+
 \begin{document}
 
 \maketitle
 
-\section{セクション1}
+
+\section{PicarD数1の場合の分類（仮）}
 \begin{Prop} \label{prop1}
     $Y$をトーラス固定点を持つ滑らかな4次元トーリック半射影的Calabi-Yau多様体で，$\rank\Pic(Y)=1$とする．
     このとき$Y$は次のいずれかと同型になる：
@@ -42,9 +44,9 @@
             \hline
             　型　 & $Y$ \\ \hline
             Ⅰ & $\Tot_{\PP^1}\cO(-2)\times\A^2$ \\
-            Ⅱ & $\Tot_{\PP^1}(\cO(-1)\otimes\cO(-1))\times\A^1$ \\
+            Ⅱ & $\Tot_{\PP^1}(\cO(-1)\oplus\cO(-1))\times\A^1$ \\
             Ⅲ & $\Tot_{\PP^2}\cO(-3)\times\A^1$ \\
-            Ⅳ & $\Tot_{\PP^2}(\cO(-1)\otimes\cO(-2))$ \\
+            Ⅳ & $\Tot_{\PP^2}(\cO(-1)\oplus\cO(-2))$ \\
             Ⅴ & $\Tot_{\PP^3}\cO(-4)$ \\
             \hline
         \end{tabular}
@@ -90,7 +92,7 @@
 \end{proof}
 
 \begin{Prop}\label{prop2}
-    $\pi:Y\to B$を滑らかな射影多様体$B$上のベクトル束とし，$E=\bigoplus_iL_i$が$D_{\rm qc}(B)$のコンパクト生成元であるとする．
+    $\pi:Y\to B$を滑らかな射影多様体$B$上のベクトル束とし，$E=\bigoplus_iL_i$が$D(\Qcoh(B))$のコンパクト生成元であるとする．
     このとき$\pi^*E$は$D(\Qcoh(Y))$のコンパクト生成元であり，
     \begin{equation}\label{eq1}
         \Ext_Y^q(\pi^*L_i,\pi^*L_j)=\bigoplus_{m\geq0}H^q(B,L_i^{-1}L_j\otimes\Sym^m Y^\vee)
@@ -130,7 +132,7 @@
     これらは例外生成列を成すので，そのGrothendieck群を考えることで$s'$は$\rank K_0(\PP^{r-1})=r$に一致しなければならない．
     $k_{s'}-k_1\leq r-1$だったので，$k_1,\dots,k_{s'}$は連続した整数であることがわかる．よって
     \begin{equation}
-        T=\bigoplus_{j=0}^{r-1}\pi^*\cO(t+j) 
+        T=\bigoplus_{j=0}^{r-1}\pi^*\cO(t+j)
     \end{equation}
     の形に限られる．\\
     逆にこのような$T$がtilting bundleを与えることを見る．高次Extの消滅はすでに見た．
@@ -141,6 +143,46 @@
         \Hom(G,\pi_*F[i])=\Hom_Y(\pi^*G,F[i])=0
     \end{equation}
     であるが，$G$は$D(\Qcoh(\PP^{r-1}))$を生成するので$\pi^*F=0$．$\pi^*$は完全なので，$F=0$が従う．
+\end{proof}
+
+
+\section{Segre錐（仮）}
+$\C$代数$R_0$を
+\begin{equation}
+    R_0=\bigoplus_{n\geq0}H^0((\PP^1)^3,\cO(n,n,n))
+\end{equation}
+で定め，Segre錐$X=\Spec R_0$を考える．3つの$\PP^1$の斉次座標をそれぞれ$(x_0:x_1), (w_0:w_1), (z_0:z_1)$とする．$R_0$は8つの1次単項式$a_{ijk}=x_iy_jz_k$によって生成される．
+よって，$X\subset\A^8=\C^2\otimes\C^2\otimes\C^2$と見なせる．この見方では$X$の元は$x\otimes y\otimes z$という形をしていて，$\C^2$の直線$l_1=\C x,\,l_2=\C y,\,l_3=\C z$を定めている．
+このうち2つを記録して
+$$Y_{12}=\{(T,l_1,l_2)\in X\times\PP^1\times\PP^1\mid T\in l_1\otimes l_2\otimes\C^2\}$$
+とすると，これが例外集合の余次元が2となる$X$のクレパント解消を与えることを見る．\\
+$\mathfrak m$を8つの1次単項式$a_{ijk}$で生成される極大イデアルとし，対応する閉点を頂点$o$と呼ぶ．
+
+\begin{Prop}
+    $R_0$は4次元正規Gorenstein整域である．また，$X$は頂点$o$を唯一の特異点として持ち，
+    $(a,b,c)=(1,2,3),(2,3,1),(3,1,2)$に対して
+    \begin{equation}
+        f_{ab}:Y_{ab}=\Tot_{\PP^1_a\times\PP^1_b}\cO(-1,-1)\otimes\C_c^2\rightarrow X
+    \end{equation}
+    は互いに異なる射影的クレパント解消となる．頂点のファイバーはzero-section $\PP^1_a\times\PP^1_b$である．
+\end{Prop}
+\begin{proof}
+    $\Z^2$次数付き環$S$を
+    \begin{equation}
+        S=\C[x_0,x_1,y_0,y_1,z_0,z_1],\quad \deg x_i=(1,0),\ \deg y_j=(0,1),\ \deg z_k=(-1,-1)
+    \end{equation}
+    と定めると，$S_{(0,0)}$は$R_0$と一致する．また，$M_{a,b}:=S_{(a,b)}$は$R_0$加群になる．
+    $S_{(0,0)}$は階数4の部分格子
+    $$\{(s_0,s_1,t_0,t_1,u_0,u_1)\in\Z^6\mid s_0+s_1=t_0+t_1=u_0+u_1\}\subset\Z^6$$
+    と$(\Z_{\geq0})^6$の共通部分が成す半群によって定められる半群環である．
+    これはsaturatedなので正規であり，さらにHochsterの定理よりCohen-Macaulayである．\\
+    $Y_{12}$において$x_0\neq0,y_0\neq0$のチャートを取り，$u=x_1/x_0, v=y_1/y_0$とおく．また，ファイバー座標を$(w_0,w_1)$とする．
+    座標環の準同型
+    $$\C[u,v,a_{000},a_{001}]\rightarrow\C[u,v,w_0,w_1];\quad a_{ijk}\mapsto u^iv^jw_k$$
+    は全射である．
+    他のチャートについても同様の準同型を作るとこれらは貼り合って，閉埋め込み$(f_{12},\pi_{12}):Y_{12}\rightarrow X\times Z$を与える．よって$f_{12}$は射影的である．
+    また，各$i,j,k$に対して$a_{ijk}\neq0$のチャートで逆の射が構成できるので，原点$o$の外では同型である．
+    極大イデアル$\mathfrak m$を引き戻すと$(w_0,w_1)$となるため，原点のファイバーはzero-sectionである．\\
 \end{proof}
 
 \end{document}
